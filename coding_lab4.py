@@ -1,51 +1,51 @@
-#ROCK PAPER SCISSORS
+
 import os
 import secrets
 
-os.system("cls")
+os.system("cls") #Clears screen for running program
 print("Welcome to rock paper scissors!\n")
 
 while True:
-    message = input("Do you want to play? (Type 'yes' or 'no') ").lower()
-    if message == 'yes':
+    response = input("Do you want to play? (Type 'yes' or 'no') ").lower()
+    if response == 'yes':
         player_choice = (input("Do you choose ROCK, PAPER, or SCISSORS? ")).upper()
         computer_choice = secrets.choice(['ROCK','PAPER','SCISSORS'])
         print(f"\nThe computer chose {computer_choice}")
         if player_choice == 'ROCK':
-            print("You chose ROCK.")
+            print("You chose ROCK.\n")
                  
             if computer_choice == 'ROCK':
-                print("---------IT'S A TIE---------")
+                print("---------ITS A TIE---------\n")
             elif computer_choice == 'PAPER':
-                print("---------YOU LOSE---------")
+                print("---------YOU LOSE---------\n")
             else:
-                print("---------YOU WIN---------")
+                print("---------YOU WIN---------\n")
                 
         elif player_choice == 'PAPER':
-            print("You chose PAPER.")
+            print("You chose PAPER.\n")
 
             if computer_choice == 'ROCK':
-                print("---------YOU WIN---------")
+                print("---------YOU WIN---------\n")
             elif computer_choice == 'PAPER':
-                print("---------IT'S A TIE---------")
+                print("---------ITS A TIE---------\n")
             else:
-                print("---------YOU LOSE---------")
+                print("---------YOU LOSE---------\n")
 
         elif player_choice == 'SCISSORS':
-            print("You chose SCISSORS.")
+            print("You chose SCISSORS.\n")
 
             if computer_choice == 'ROCK':
-                print("---------YOU LOSE---------")
+                print("---------YOU LOSE---------\n")
             elif computer_choice == 'PAPER':
-                print("---------YOU WIN---------")
+                print("---------YOU WIN---------\n")
             else:
-                print("---------IT'S A TIE---------")
+                print("---------ITS A TIE---------\n")
 
         else:
-            print("That is not a valid option.")
+            print(f"{player_choice} is not a valid option.")
 
-    elif message == 'no':
+    elif response == 'no':
         break
     
     else: 
-        print("error")
+        print(f"Sorry, {response} is invalid.")
