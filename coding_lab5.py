@@ -85,7 +85,7 @@ while True:
 
         print(f"Random generator chose the {computer_choice.upper()} operator. Result is {sum6}")
 
-    elif user_input == 7:
+    elif user_input == 7: #EXITS PROGRAM
         break
 
     else:
