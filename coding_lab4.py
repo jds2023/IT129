@@ -1,8 +1,7 @@
-
-import os
+import os 
 import secrets
 
-os.system("cls") #Clears screen for running program
+os.system("cls") #import os and os.system used to clear screen before running program
 print("Welcome to rock paper scissors!\n")
 
 while True:
