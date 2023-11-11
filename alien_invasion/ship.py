@@ -1,40 +1,37 @@
 import pygame
 
+# The ship.py file contains the Ship class.  The Ship class has an
+# __init_() method, and update() method to manage the ship's position, and
+# a blitme() method to draw the ship to the screen.  
+
 class Ship:
-    """A class to manage the ship."""
-
+    # A class to manage the ship 
     def __init__(self, ai_game):
-        """Initialize the ship and set its starting position."""
+        # Initialize the ship and set its starting position.
         self.screen = ai_game.screen
-        self.screen = ai_game.settings
+        self.settings = ai_game.settings
         self.screen_rect = ai_game.screen.get_rect()
-
-        # Load the ship image and gets its rect.
-        self.image = pygame.image.load('alien_invasion/images/ship.bmp')
+        # Load the ship image and get its rect.
+        self.image = pygame.image.load('images/ship.bmp')
         self.rect = self.image.get_rect()
-
-        # Start each new ship at the bottom center of the screen.
+        # Start each new ship at the bottom center of the screen
         self.rect.midbottom = self.screen_rect.midbottom
-        
-        # Store a decimal value for the ship's horizontal position.
+        # Store a decimal value for the ship's horizontal position
         self.x = float(self.rect.x)
 
-        # Movement flags
-        self.moving_right = False 
-        self.moving_left = False 
-    
-    def update(self):
-        """Update the ship's position based on the movement flags."""
-        # Update the ship's x value, not the rect.
-        if self.moving_right:
-            self.x += self.settings.ship_speed
-        if self.moving_left:
-            self.x -= self.settings.ship_speed
+        # Movement Flag
+        self.moving_right = False
+        self.moving_left = False
 
-        # Update rect object from self.x 
-        self.rect.x = self.x 
+    def update(self):
+        # Update the ship's x value, not the rect
+        if self.moving_right and self.rect.right < self.screen_rect.right:
+            self.x += self.settings.ship_speed
+        if self.moving_left and self.rect.left > 0:
+            self.x -= self.settings.ship_speed
+        
+        self.rect.x = self.x
 
     def blitme(self):
-        """Draw the ship at its current location."""
+        # draw the ship at its current location
         self.screen.blit(self.image, self.rect)
-                         
